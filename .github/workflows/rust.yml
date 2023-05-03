@@ -1,0 +1,55 @@
+name: Rust CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+
+  lint:
+    name: Linting & Coding Standards
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Rust Toolchain
+      run: |
+        rustup update
+        rustup component add clippy
+    - name: Lint
+      run: |
+        cargo fmt -- --check
+        cargo clippy
+
+  dependencies:
+    name: Check Dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Rust Toolchain
+      run: |
+        rustup update
+        rustup install nightly
+        cargo install cargo-udeps
+    - name: Check for unused dependencies
+      run: |
+        cargo +nightly udeps
+
+  test:
+    name: Test Suite
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Rust Toolchain
+      run: |
+        rustup update
+        rustup install stable
+    - name: Build
+      run: cargo build --verbose
+    - name: Execute tests
+      run: cargo test --verbose
+
