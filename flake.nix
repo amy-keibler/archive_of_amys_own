@@ -14,7 +14,7 @@
       packages.archive_of_amys_own = naersk-lib.buildPackage {
         pname = "archive_of_amys_own";
         root = ./.;
-        doCheck = true;
+        doCheck = false; # Tests make real requests to AO3 as an integration test
       };
       packages.default = packages.archive_of_amys_own;
 
