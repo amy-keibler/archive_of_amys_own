@@ -11,4 +11,4 @@ scraper = "0.16.0"
 thiserror = "1.0.40"
 
 [dev-dependencies]
-tokio = { version = "1.28.2", features = [ "macros", "test-util" ] }
+tokio = { version = "1.29.0", features = [ "macros", "test-util" ] }
