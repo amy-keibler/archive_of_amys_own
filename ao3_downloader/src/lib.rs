@@ -87,7 +87,8 @@ mod tests {
 
     const EXAMPLE_FIC_ID: u32 = 36358546; // https://archiveofourown.org/works/36358546/
 
-    #[tokio::test]
+    // #[tokio::test]
+    // TODO: need to mock the server for CI
     async fn it_should_download() {
         let mut downloader = ArchiveOfOurOwnDownloader::new().expect("Failed to build downloader");
         downloader
