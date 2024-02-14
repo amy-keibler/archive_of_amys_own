@@ -6,7 +6,7 @@ description = "A tool to download EPUB files of specific AO3 fanfiction stories"
 license-file = "LICENSE"
 
 [dependencies]
-reqwest = { version = "0.11.23", default-features = false, features = [ "cookies", "gzip", "rustls-tls-webpki-roots" ] }
+reqwest = { version = "0.11.24", default-features = false, features = [ "cookies", "gzip", "rustls-tls-webpki-roots" ] }
 scraper = "0.18.1"
 thiserror = "1.0.57"
 
